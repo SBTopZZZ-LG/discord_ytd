@@ -1,0 +1,7 @@
+{
+    "bot.appid": 1035131827930804306,
+    "bot.color": "0xa1e07a",
+    "bot.name": "YTD!",
+    "bot.oauth": "https://discord.com/api/oauth2/authorize?client_id=1035131827930804306&permissions=277025410048&scope=bot%20applications.commands",
+    "bot.permissions": 277025410048
+}
