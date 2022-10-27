@@ -34,6 +34,10 @@ class YouTubeVideo {
 
     async load() {
         this.info = await ytdl.getInfo(this.url);
+        this.info.formats = [
+            ...ytdl.filterFormats(this.info.formats, "videoandaudio"),
+            ...ytdl.filterFormats(this.info.formats, "audioonly"),
+        ];
         return this.info;
     }
 
