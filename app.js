@@ -12,6 +12,9 @@ client.once('ready', async () => {
     // Setup discord bot commands, if needed
     // await require("./src/scripts/setup.discord.bot.script").discordBotSetupCommands(client);
 
+    // Update discord bot activity
+    await require("./src/scripts/setup.discord.bot.script").discordBotUpdateActivity(client);
+
     // Setup interactions
     const discordCommands = require("./src/utils/discord.bot.slash.commands.util");
     const discordInteractions = require("./src/utils/discord.bot.interactions.util");
