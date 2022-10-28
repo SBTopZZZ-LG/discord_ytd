@@ -1,6 +1,6 @@
 // Import
 const { YouTubeVideo } = require("../models/youtube.video.model");
-const { hide } = require("../utils/hideuri.util");
+const { tinyUrl } = require("../utils/tinyurl.util");
 
 // Middleware
 function getYouTubeVideoDownloadUrl() {
@@ -16,7 +16,7 @@ function getYouTubeVideoDownloadUrl() {
         const formats = video.getFormats();
         if (value >= formats.length) return;
 
-        const downloadUrl = await hide(formats[value].url);
+        const downloadUrl = await tinyUrl(formats[value].url);
         return ic.reply({
             content: `Here's the link: ${downloadUrl}`,
             ephemeral: true,
