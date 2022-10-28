@@ -63,9 +63,29 @@ class YouTubeVideo {
 
     getDuration() {
         const { lengthSeconds } = this.info.videoDetails;
-        const lengthSeconds2 = parseInt(lengthSeconds);
+        const seconds = parseInt(lengthSeconds);
 
-        return `${Math.floor(lengthSeconds2 / 60)}:${lengthSeconds2 - Math.floor(lengthSeconds2 / 60) * 60}`;
+        let hh = Math.floor(seconds / 3600);
+        let mm = Math.floor((seconds - (hh * 3600)) / 60);
+        let ss = seconds - (hh * 3600) - (mm * 60);
+
+        if (hh < 10) {
+            hh = "0" + hh;
+        }
+        if (mm < 10) {
+            mm = "0" + mm;
+        }
+        if (ss < 10) {
+            ss = "0" + ss;
+        }
+
+        let time = "";
+        if (hh > 0)
+            time = `${hh}:${mm}:${ss}`;
+        else
+            time = `${mm}:${ss}`;
+
+        return time;
     }
 
     getThumbnail() {
